@@ -2,6 +2,7 @@
   "development": {
     "ENV_NAME": "DEVELOPMENT",
     "NODE_SERVER_PORT": 3010,
+    "PORT": 3010,
     "PG_DB_HOST": "localhost",
     "PG_DB_PORT": 5432,
     "PG_DB_NAME": "profile",
