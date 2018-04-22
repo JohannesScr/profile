@@ -57,13 +57,10 @@
 }
 
 body {
-    font-family: 'Droid Serif', serif;
-    /*text-align: center;*/
-    /*padding: 2.95em 0;*/
+    /*font-family: 'Droid Serif', serif;*/
+    font-family: 'Helvetica Neue', serif;
     background: #f9f9f9;
     color: #333;
-    /*font-size: 2em;*/
-    /*line-height: 1.62;*/
 }
 
 p {
@@ -83,23 +80,98 @@ p {
     font-style: italic;
 }
 
-nav .menu-icn {
-    display: none;
+nav {
+    background: rgb(43, 43, 43);
+    color: #f9f9f9;
 }
 
-.show-block {
-    display: block;
+.nav-menu {
+    display: flex;
+}
+
+.nav-main-menu {
+    display: flex;
+    position: relative;
+    margin: auto 0;
+}
+
+.nav-submenu {
+    position: absolute;
+    top: 1.5em;
+    width: 16em;
+    display: flex;
+    flex-direction: column;
+    background: rgb(43, 43, 43);
+    color: #f9f9f9;
+}
+
+nav .menu-icn {
+    display: none;
+    width: 3em;
+    padding: 5px;
+}
+
+nav .menu-logo {
+    width: 12em;
+    padding: 5px;
+}
+
+nav ul li {
+    list-style: none;
+}
+
+nav ul li a {
+    padding: 5px;
+    text-decoration: none;
+    color: white;
+}
+
+.hide-screen {
+    display: none;
 }
 
 /* ---------------------
 	Media
 ------------------------ */
 @media screen and (max-width: 667px) {
+    .nav-menu {
+        flex-direction: column;
+    }
+
+    nav .menu-logo {
+        display: none;
+    }
+
     nav .menu-icn {
         display: inline-block;
     }
 
-    nav ul {
+    nav ul .hide-block {
         display: none;
     }
+
+    .nav-submenu {
+        position: relative;
+        top: 0;
+    }
+    
+    .hide-mobile {
+        display: none;
+    }
+
+    .hide-screen {
+        display: inline;
+    }
+}
+
+/* ---------------------
+	Toggle
+------------------------ */
+
+.hide-block {
+    display: none;
+}
+
+.show-block {
+    display: block;
 }

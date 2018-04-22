@@ -6,16 +6,32 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-<nav>
-    <!--<a class="menu-icn bold" href="">home</a>-->
-    <a id="menu_default" class="menu-logo bold" href="#">home</a>
-    <ul id="main_menu">
-        <li><a href="">projects</a></li>
+<nav class="nav-menu">
+    <img name="main" class="menu-icn bold" onclick="menu(event)" src="assets/js_logo.svg">
+    <img name="main" class="menu-logo bold" src="assets/johannes_scribante_logo.svg">
+    <!--<a id="menu_default" name="main" class="menu-logo bold" onclick="menu(event)">home</a>-->
+    <ul id="menu_main" class="nav-main-menu hide-mobile">
+        <li><a class="hide-screen" href="index.html">home</a></li>
+        <li><a name="projects" onclick="submenu(event)">projects</a>
+            <ul id="submenu_projects" class="hide-block nav-submenu">
+                <li><a href="./routes/facility_layout.html">facility layout problem</a></li>
+                <li><a href="./routes/facility_layout.html">facility layout problem</a></li>
+                <li><a href="./routes/facility_layout.html">facility layout problem</a></li>
+                <li><a href="./routes/facility_layout.html">facility layout problem</a></li>
+            </ul>
+        </li>
+        <li><a name="other" onclick="submenu(event)">other</a>
+            <ul id="submenu_other" class="hide-block nav-submenu">
+                <li><a href="./routes/facility_layout.html">facility layout problem</a></li>
+                <li><a href="./routes/facility_layout.html">facility layout problem</a></li>
+                <li><a href="./routes/facility_layout.html">facility layout problem</a></li>
+                <li><a href="./routes/facility_layout.html">facility layout problem</a></li>
+            </ul>
+        </li>
     </ul>
 </nav>
 <header>
-    <h2>home</h2>
-    <a href="./routes/about.html">about</a>
+    <h1>Johannes Scribante</h1>
 </header>
 <main>
     <div id="title"></div>

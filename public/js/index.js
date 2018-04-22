@@ -7,3 +7,17 @@ menu_default.addEventListener('click', (event) => {
     let main_menu = document.getElementById('main_menu');
     main_menu.classList.toggle('show-block');
 });
+
+function menu(event) {
+    event.preventDefault();
+    console.log(event.target.name);
+    let submenu = document.getElementById(`menu_${event.target.name}`);
+    submenu.classList.toggle('show-block');
+}
+
+function submenu(event) {
+    event.preventDefault();
+    console.log(event.target.name);
+    let submenu = document.getElementById(`submenu_${event.target.name}`);
+    submenu.classList.toggle('hide-block');
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1723px" height="1034px" viewBox="0 0 1723 1034" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47 (45396) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 5</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-5" fill="#D8D8D8">
+            <rect id="Rectangle" x="500" y="0" width="100" height="734"></rect>
+            <rect id="Rectangle" x="1123" y="300" width="100" height="434"></rect>
+            <path d="M0,734 C0,899.685425 134.314575,1034 300,1034 C465.685425,1034 600,899.685425 600,734 L500,734 C500,844.45695 410.45695,934 300,934 C189.54305,934 100,844.45695 100,734 L-1.0658141e-14,734 Z" id="Combined-Shape"></path>
+            <path d="M623,734 C623,899.685425 757.314575,1034 923,1034 C1088.68542,1034 1223,899.685425 1223,734 L1123,734 C1123,844.45695 1033.45695,934 923,934 C812.54305,934 723,844.45695 723,734 L623,734 Z" id="Combined-Shape"></path>
+            <path d="M1123,0 C1123,165.685425 1257.31458,300 1423,300 C1588.68542,300 1723,165.685425 1723,0 L1623,0 C1623,110.45695 1533.45695,200 1423,200 C1312.54305,200 1223,110.45695 1223,2.84217094e-14 L1123,0 Z" id="Combined-Shape" transform="translate(1423.000000, 150.000000) scale(1, -1) translate(-1423.000000, -150.000000) "></path>
+        </g>
+    </g>
+</svg>
