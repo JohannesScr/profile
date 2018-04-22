@@ -1,13 +1,5 @@
 document.getElementById('title').innerText = 'JS text';
 
-let menu_default = document.getElementById('menu_default');
-
-menu_default.addEventListener('click', (event) => {
-    event.preventDefault();
-    let main_menu = document.getElementById('main_menu');
-    main_menu.classList.toggle('show-block');
-});
-
 function menu(event) {
     event.preventDefault();
     console.log(event.target.name);
@@ -15,9 +7,32 @@ function menu(event) {
     submenu.classList.toggle('show-block');
 }
 
+let previous_submenu = null;
+
 function submenu(event) {
     event.preventDefault();
-    console.log(event.target.name);
+
     let submenu = document.getElementById(`submenu_${event.target.name}`);
-    submenu.classList.toggle('hide-block');
+
+    if (previous_submenu === `submenu_${event.target.name}`) {
+        submenu.classList.toggle('hide-block');
+    } else {
+
+        let open = document.querySelectorAll('.nav-submenu');
+        open.forEach(element => {
+            for (let i = 0; i < element.classList.length; i++) {
+                let list = element.classList.value.split(' ');
+                let boolean = list.filter(class_name => {
+                    return class_name === 'hide-block';
+                });
+
+                if (boolean.length === 0) {
+                    element.classList.add('hide-block');
+                }
+            }
+        });
+
+        submenu.classList.toggle('hide-block');
+        previous_submenu = `submenu_${event.target.name}`;
+    }
 }

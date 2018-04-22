@@ -3,23 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <title>Facility Layout</title>
+    <link rel="stylesheet" href="../css/nav.css">
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/index.css">
 </head>
 <body>
-<nav>
-    <!--<a class="menu-icn bold" href="">home</a>-->
-    <a id="menu_default" class="menu-logo bold" href="#">home</a>
-
-    <ul id="main_menu">
-        <li><a href="#" onclick="submenu(event)">projects</a></li>
+<nav class="nav-menu">
+    <img name="main" class="menu-icn bold" onclick="menu(event)" src="../assets/js_logo.svg">
+    <a href="../index.html"><img name="main" class="menu-logo bold" src="../assets/johannes_scribante_logo.svg"></a>
+    <!--<a id="menu_default" name="main" class="menu-logo bold" onclick="menu(event)">home</a>-->
+    <ul id="menu_main" class="nav-main-menu hide-mobile">
+        <li><a class="hide-screen" href="../index.html">home</a></li>
+        <li><a href="#" name="projects" onclick="submenu(event)">projects</a>
+            <ul id="submenu_projects" class="hide-block nav-submenu">
+                <li><a href="./facility_layout.html">facility layout problem</a></li>
+            </ul>
+        </li>
+        <li><a href="#" name="other" onclick="submenu(event)">other</a>
+            <ul id="submenu_other" class="hide-block nav-submenu">
+                <li><a>bank statements</a></li>
+                <li><a>workflow</a></li>
+            </ul>
+        </li>
     </ul>
 </nav>
-<header>
-    <h2>Facility Layout</h2>
-</header>
-<main>
-    <div id="title"></div>
-</main>
+<div class="page-content">
+    <section class="section section-1">
+        <h2>Facility Layout</h2>
+    </section>
+    <section class="section section-2">
+        <div id="title"></div>
+    </section>
+</div>
 
 <script src="../js/index.js"></script>
 </body>
