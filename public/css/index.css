@@ -1,9 +1,10 @@
 .section {
-    height: 30vh;
+    min-height: 30vh;
 }
 
 .section-1 {
-    background-color: #f9f9f9;
+    height: 80vh;
+    background: #f9f9f9 url('./../assets/rock_climbing.jpg') no-repeat center bottom / cover;
 }
 
 .section-2 {

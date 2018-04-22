@@ -62,10 +62,11 @@ body {
     font-family: 'Helvetica Neue', serif;
     background: #f9f9f9;
     color: #333;
+    text-align: center;
 }
 
 .page-content {
-    padding-top: 52px;
+    padding-top: 50px;
 }
 
 p {
@@ -83,6 +84,16 @@ p {
 .bold-italic {
     font-weight: bold;
     font-style: italic;
+}
+
+/* ---------------------
+	Media
+------------------------ */
+
+@media screen and (max-width: 667px) {
+    .page-content {
+        padding-top: 42px;
+    }
 }
 
 /* ---------------------

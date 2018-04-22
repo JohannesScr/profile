@@ -1,4 +1,4 @@
-document.getElementById('title').innerText = 'JS text';
+// document.getElementById('title').innerText = 'JS text';
 
 function menu(event) {
     event.preventDefault();
