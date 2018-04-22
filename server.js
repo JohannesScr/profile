@@ -3,13 +3,20 @@ const path = require('path');
 const express = require('express');
 // local imports
 const {setup_environment} = require('./includes/config');
+const {log_url} = require('./includes/server.settings');
 let app = express();
 
 setup_environment();
 let PORT = process.env.NODE_SERVER_PORT;
 
 // default html
+app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(log_url);
+
+app.get('/about', (req, res) => {
+    res.render('about.hbs');
+});
 
 // app.get('/', express.static('public'));
 // app.get('/', (req, res) => {
