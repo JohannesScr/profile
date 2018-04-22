@@ -7,7 +7,7 @@ const {log_url} = require('./includes/server.settings');
 let app = express();
 
 setup_environment();
-let PORT = process.env.NODE_SERVER_PORT || process.env.PORT || 8080;
+let PORT =  process.env.PORT;
 
 // default html
 app.set('view engine', 'hbs');
