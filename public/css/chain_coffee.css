@@ -1,3 +1,12 @@
+.section {
+    display: flex;
+}
+
+.left,
+.right {
+    flex-grow: 1;
+}
+
 .section-1 {
     height: 80vh;
     text-align: center;
@@ -7,10 +16,6 @@
     margin: auto 0;
     background: #f9f9f9 ;
 }
-
-/*.shade h1 {*/
-    /*opacity: 1;*/
-/*}*/
 
 .chain-section-1-bg {
     background: #ffa949 url('./../assets/chain_coffee_colour.jpg') no-repeat center bottom / cover;
@@ -22,16 +27,19 @@
     display: flex;
 }
 
-article {
+.article-text {
+    padding: 10px;
     flex-grow: 1;
+    max-width: 50ch;
 }
 
 .article-img {
+    margin: auto 0;
     flex-grow: 1;
 }
 
 .img-dimensions {
-    margin: 10px;
+    padding: 10px;
     max-width: 300px;
     max-height: 300px;
 }

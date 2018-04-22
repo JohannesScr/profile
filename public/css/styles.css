@@ -86,6 +86,21 @@ p {
     font-style: italic;
 }
 
+.section {
+    display: flex;
+    padding: 10px;
+}
+
+.left,
+.right {
+    flex-grow: 1;
+}
+
+.section-dark {
+    color: grey;
+    background: rgb(43, 43, 43);
+}
+
 /* ---------------------
 	Media
 ------------------------ */
@@ -93,6 +108,10 @@ p {
 @media screen and (max-width: 667px) {
     .page-content {
         padding-top: 42px;
+    }
+
+    .section {
+        flex-direction: column;
     }
 }
 

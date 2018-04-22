@@ -40,17 +40,57 @@
         <article class="article-text">
             <!--<div id="title"></div>-->
             <h2>Chain Coffee</h2>
-            <p>Chain Coffee is a mobile coffee bar</p>
+            <p>At the heart of every cup of coffee it is a combination of aesthetic allure
+            and atmosphere changing taste that makes one stop and think about what has
+            just happened.</p>
+            <p>Your mouth has had the opportunity to taste something soo extraordinary that
+            it renders all other thoughts pointless. Your mind now has one objective, to solve
+            the puzzle it has been presented with.</p>
+            <p>~ Isn't that how every cup of coffee should be?</p>
+            <p>Chain Coffee is a mobile coffee bar specialising in events and functions.
+            Our speciality is coffee beverages (as can be recognised in the name), however,
+            we do a variety of beverages.</p>
         </article>
         <div class="article-img">
             <img class="img-dimensions" src="./../assets/chain_coffee_cc.jpg" alt="chain coffee">
         </div>
     </section>
     <section class="section">
-
+        <div class="left">
+            <h2>Get a quote</h2>
+            <div>
+                <label for="start_date">Start date</label><input id="start_date" type="date">
+            </div>
+            <div>
+                <label for="end_date">End date</label><input id="end_date" type="date">
+            </div>
+            <div>
+                <label for="start_time">Start time</label><input type="time" name="" id="start_time">
+            </div>
+            <div>
+                <label for="end_time">End time</label><input type="time" name="" id="end_time">
+            </div>
+            <div>
+                <label for="pax">Number of guests</label><input type="text" id="pax">
+            </div>
+            <div>
+                <label for="venue">Venue</label><input type="text" id="venue">
+            </div>
+            <button onclick="generate_quote()">Generate quote</button>
+            <div>
+                <p id="quote_amount"></p>
+            </div>
+        </div>
+        <article class="right">
+            <h2>Get a quote</h2>
+        </article>
+    </section>
+    <section class="section section-dark">
+        <div></div>
     </section>
 </div>
 
 <script src="../js/index.js"></script>
+<script src="../js/chain_coffee.js"></script>
 </body>
 </html>
