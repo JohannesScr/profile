@@ -90,15 +90,16 @@
 /*SMALL*/
 @media (max-width: 54em) {  /* 54 * 16 = 864px */
     .block {
+        margin: 70px auto 0 auto;
         border-radius: 10px;
-        margin: auto;
+        /*margin: auto;*/
         border: 5px solid dodgerblue;
-        width: 300px;
-        height: 300px;
+        width: 250px;
+        height: 250px;
     }
 
     .block-bg {
-        background: white url('./../assets/chain_coffee_cc.jpg') no-repeat -110px 0 / cover;
+        background: white url('./../assets/chain_coffee_cc.jpg') no-repeat -100px 0 / cover;
     }
 
     .head-glance {
