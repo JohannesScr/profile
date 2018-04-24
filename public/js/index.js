@@ -5,7 +5,7 @@ let wl = document.getElementsByClassName('bg-wl');
 
 function menu(event) {
     event.preventDefault();
-    console.log(event.target.name);
+    // console.log(event.target.name);
     let submenu = document.getElementById(`menu_${event.target.name}`);
     submenu.classList.toggle('show-block');
 }
@@ -72,7 +72,6 @@ function section_1_bg() {
                 mutation = -209;
                 break;
         }
-        console.log(mutation);
         let diff = (section_1_height/2) - (wl[i].clientHeight/2) + mutation;
         wl[i].style.top = diff+'px';
         wl[i].style.left = -100+'px';
@@ -80,8 +79,6 @@ function section_1_bg() {
 }
 
 document.getElementById('section_1').onmousemove = (event) => {
-    console.log(event);
-
     let x = event.movementX;
     let y = event.movementY;
     let mutation_x = 0;
@@ -123,7 +120,6 @@ document.getElementById('section_1').onmousemove = (event) => {
                 mutation_x = 0.01 * x;
                 break;
         }
-        console.log(x, y, mutation_x, mutation_y);
         let new_left = left + mutation_x;
         let new_top = top + mutation_y;
 
@@ -138,7 +134,3 @@ if (init_load) {
     setTimeout(section_1_bg, 10);
     init_load = false;
 }
-//
-window.onratechange = () => {
-    section_1_bg();
-};

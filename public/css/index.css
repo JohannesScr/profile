@@ -11,17 +11,14 @@
     overflow-y: hidden;
 }
 
-/*.section-1 .bg {*/
-    /*position: relative;*/
-    /*width: 100%;*/
-    /*overflow-x: hidden;*/
-    /*overflow-y: hidden;*/
-/*}*/
-
 .section-1 .bg-1,
 .section-1 .bg-2,
 .section-1 .bg-3,
-.section-1 .bg-4 {
+.section-1 .bg-4,
+.section-1 .bg-5,
+.section-1 .bg-6,
+.section-1 .bg-7,
+.section-1 .bg-8 {
     position: absolute;
     z-index: 0;
     top: 0;
@@ -35,9 +32,81 @@
     top: 0;
     left: 0;
     width: 100%;
+    height: 100%;
     z-index: 0;
 }
 
 .section-2 {
     background-color: rgb(43, 43, 43);
+}
+
+.block {
+    border-radius: 10px;
+    margin: auto;
+    border: 5px solid dodgerblue;
+    width: 400px;
+    height: 400px;
+}
+
+.block-bg {
+    background: white url('./../assets/chain_coffee_cc.jpg') no-repeat -150px 0 / cover;
+}
+
+.icon-area {
+    margin: auto;
+    width: 100px;
+}
+
+.icon-group {
+    display: flex;
+    margin: 5px 0;
+}
+
+.icon-group:hover .icon {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.icon-group:hover .icon-label {
+    color: white;
+}
+
+.icon-label {
+    margin: auto 0;
+    color: rgb(43, 43, 43);
+}
+
+.icon {
+    margin: auto 15px;
+    width: 6px;
+    height: 15px;
+    background: transparent;
+    border: 3px solid rgb(43, 43, 43);
+}
+
+/* ---------------------
+	Media
+------------------------ */
+
+/*SMALL*/
+@media (max-width: 54em) {  /* 54 * 16 = 864px */
+    .block {
+        border-radius: 10px;
+        margin: auto;
+        border: 5px solid dodgerblue;
+        width: 300px;
+        height: 300px;
+    }
+
+    .block-bg {
+        background: white url('./../assets/chain_coffee_cc.jpg') no-repeat -110px 0 / cover;
+    }
+
+    .head-glance {
+        margin-top: 20px;
+    }
+}
+
+
+.a {
+
 }

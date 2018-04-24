@@ -113,7 +113,16 @@ p {
 }
 
 /* ---------------------
-	Basic Styles
+	Basic Element Styles
+------------------------ */
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+/* ---------------------
+	Basic Class Styles
 ------------------------ */
 
 .section-dark {
@@ -132,11 +141,22 @@ p {
     max-height: 400px;
 }
 
+.footer {
+    display: flex;
+    height: 200px;
+    background: linear-gradient(to left, #D9D7D9, dodgerblue)
+}
+
 /* ---------------------
 	Media
 ------------------------ */
 
-@media screen and (max-width: 667px) {
+/*SMALL*/
+@media (max-width: 54em) {  /* 54 * 16 = 864px */
+    body {
+        font-size: 1em;
+    }
+
     .page-content {
         padding-top: 42px;
     }
@@ -144,8 +164,32 @@ p {
     .section {
         flex-direction: column;
     }
+
+    .footer {
+        flex-direction: column;
+    }
 }
 
+/* MEDIUM */
+@media (min-width: 64em) { /* 54 * 16 = 1024px */
+    body {
+        font-size: 1.125em;
+    }
+}
+
+/* LARGE */
+@media (min-width: 94em) { /* 54 * 16 = 1504px */
+    body {
+        font-size: 1.375em;
+    }
+}
+
+/* X-LARGE */
+@media (min-width: 120em) { /* 54 * 16 = 1902px */
+    body {
+        font-size: 1.5em;
+    }
+}
 /* ---------------------
 	Toggle
 ------------------------ */
