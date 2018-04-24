@@ -89,6 +89,17 @@
 
 /*SMALL*/
 @media (max-width: 54em) {  /* 54 * 16 = 864px */
+    .section-1 .bg-1,
+    .section-1 .bg-2,
+    .section-1 .bg-3,
+    .section-1 .bg-4,
+    .section-1 .bg-5,
+    .section-1 .bg-6,
+    .section-1 .bg-7,
+    .section-1 .bg-8 {
+        width: 150%;
+    }
+
     .block {
         margin: 70px auto 0 auto;
         border-radius: 10px;
