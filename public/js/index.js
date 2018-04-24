@@ -132,8 +132,13 @@ document.getElementById('section_1').onmousemove = (event) => {
     }
 };
 
+// Initialize window
 let init_load = true;
 if (init_load) {
     setTimeout(section_1_bg, 10);
     init_load = false;
 }
+//
+window.onratechange = () => {
+    section_1_bg();
+};
