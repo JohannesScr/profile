@@ -1,15 +1,5 @@
-.section {
-    display: flex;
-}
-
-.left,
-.right {
-    flex-grow: 1;
-}
-
 .section-1 {
     height: 80vh;
-    text-align: center;
 }
 
 .shade {
@@ -24,18 +14,15 @@
 /* section 2 */
 .section-2 {
     color: grey;
-    display: flex;
 }
 
 .article-text {
     padding: 10px;
-    flex-grow: 1;
     max-width: 50ch;
 }
 
 .article-img {
     margin: auto 0;
-    flex-grow: 1;
 }
 
 .img-dimensions {
@@ -48,8 +35,6 @@
 	Media
 ------------------------ */
 
-@media screen and (max-width: 667px) {
-    .section-2 {
-        flex-direction: column;
-    }
-}
+/*@media screen and (max-width: 667px) {*/
+    /**/
+/*}*/

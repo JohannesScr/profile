@@ -4,7 +4,38 @@
 
 .section-1 {
     height: 80vh;
-    background: #f9f9f9 url('./../assets/rock_climbing.jpg') no-repeat center bottom / cover;
+    flex-wrap: wrap;
+    /*background: rgb(217, 215, 217) url('./../assets/rock_climbing.jpg') no-repeat center bottom / cover;*/
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+/*.section-1 .bg {*/
+    /*position: relative;*/
+    /*width: 100%;*/
+    /*overflow-x: hidden;*/
+    /*overflow-y: hidden;*/
+/*}*/
+
+.section-1 .bg-1,
+.section-1 .bg-2,
+.section-1 .bg-3,
+.section-1 .bg-4 {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    /*left: -30px;*/ /* handled in index.js */
+    width: 120%;
+    opacity: 0.5;
+}
+
+.section-1 .foreground {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 0;
 }
 
 .section-2 {

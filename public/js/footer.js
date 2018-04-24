@@ -125,7 +125,7 @@ function animate_canvas() {
         }
         draw();
         // console.log(point_step);
-    }, 100);
+    }, 10);
 }
 
 // init_canvas();

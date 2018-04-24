@@ -14,9 +14,13 @@
     <!--<a id="menu_default" name="main" class="menu-logo bold" onclick="menu(event)">home</a>-->
     <ul id="menu_main" class="nav-main-menu hide-mobile">
         <li><a class="hide-screen" href="index.html">home</a></li>
+        <li><a href="#" name="business" onclick="submenu(event)">business</a>
+            <ul id="submenu_business" class="hide-block nav-submenu">
+                <li><a href="./routes/chain_coffee.html">chain coffee</a></li>
+            </ul>
+        </li>
         <li><a href="#" name="projects" onclick="submenu(event)">projects</a>
             <ul id="submenu_projects" class="hide-block nav-submenu">
-                <li><a href="./routes/chain_coffee.html">chain coffee</a></li>
                 <li><a href="./routes/facility_layout.html">facility layout problem</a></li>
             </ul>
         </li>
@@ -30,23 +34,56 @@
     </ul>
 </nav>
 <div class="page-content">
-    <section class="section section-1">
-        text
+    <section id="section_1" class="section section-light section-1">
+        <img id="wl-1" class="bg-wl bg-1" src="./assets/one-sin-wavelength.png" alt="one sine wavelength">
+        <img id="wl-2" class="bg-wl bg-2" src="./assets/three-sin-wavelength.png" alt="one sine wavelength">
+        <img id="wl-3" class="bg-wl bg-2" src="./assets/three-cos-wavelength.png" alt="one sine wavelength">
+        <img id="wl-4" class="bg-wl bg-3" src="./assets/six-sin-wavelength.png" alt="one sine wavelength">
+        <img id="wl-5" class="bg-wl bg-3" src="./assets/six-cos-wavelength.png" alt="one sine wavelength">
+        <img id="wl-6" class="bg-wl bg-4" src="./assets/twelve-sin-wavelength.png" alt="one sine wavelength">
+        <img id="wl-7" class="bg-wl bg-4" src="./assets/twelve-sin-wavelength.png" alt="one sine wavelength">
+        <img id="wl-8" class="bg-wl bg-4" src="./assets/twelve-cos-wavelength.png" alt="one sine wavelength">
+        <div class="section foreground">
+            <div class="left">
+                <q cite="#">Teach us to number our days, <br>
+                    that we may gain a heart of wisdom.</q>
+                <p>~ Psalm 90:12</p>
+            </div>
+            <article class="right v-center">
+                <q cite="#">Teach us to number our days, <br>
+                    that we may gain a heart of wisdom.</q>
+                <p>~ Psalm 90:12</p>
+            </article>
+        </div>
     </section>
-    <section class="section section-2">
-        <div id="title"></div>
+    <section class="section section-dark section-2">
+        <div id="title" class="left">
+            <p>text</p>
+        </div>
+        <article class="right">
+            <img class="img-basic" src="./assets/rock_climbing.jpg" alt="rock climbing botmaskop">
+        </article>
     </section>
-    <footer>
+    <section class="section section-light">
 
+    </section>
+    <section class="section section-dark">
+
+    </section>
+    <footer class="section-light">
+        <article>
+            <p>LinkedIn</p>
+            <p>Github</p>
+        </article>
     </footer>
     <!--<canvas id="tutorial" width="1500" height="300"></canvas>-->
 </div>
 
 <!--<style type="text/css">-->
-    <!--canvas {-->
-        <!--margin: 10px;-->
-        <!--border: 1px solid black;-->
-    <!--}-->
+<!--canvas {-->
+<!--margin: 10px;-->
+<!--border: 1px solid black;-->
+<!--}-->
 <!--</style>-->
 
 
