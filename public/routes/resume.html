@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home</title>
+    <link rel="stylesheet" href="./../css/nav.css">
+    <link rel="stylesheet" href="./../css/styles.css">
+</head>
+<body>
+<nav class="nav-menu">
+    <img name="main" class="menu-icn bold" onclick="menu(event)" src="./../assets/js_logo.svg">
+    <a href="./../index.html"><img name="main" class="menu-logo bold" src="./../assets/johannes_scribante_logo.svg"></a>
+    <!--<a id="menu_default" name="main" class="menu-logo bold" onclick="menu(event)">home</a>-->
+    <ul id="menu_main" class="nav-main-menu hide-mobile">
+        <li><a class="hide-screen" href="./../index.html">home</a></li>
+        <li><a href="#" name="business" onclick="submenu(event)">business</a>
+            <ul id="submenu_business" class="hide-block nav-submenu">
+                <li><a href="./chain_coffee.html">chain coffee</a></li>
+            </ul>
+        </li>
+        <li><a href="#" name="projects" onclick="submenu(event)">projects</a>
+            <ul id="submenu_projects" class="hide-block nav-submenu">
+                <li><a href="./facility_layout.html">facility layout problem</a></li>
+                <li><a href="./workflow.html">workflow</a></li>
+            </ul>
+        </li>
+        <li><a href="#" name="other" onclick="submenu(event)">other</a>
+            <ul id="submenu_other" class="hide-block nav-submenu">
+                <!--<li><a>bank statements</a></li>-->
+                <li><a href="">resume</a></li>
+            </ul>
+        </li>
+        <li><a href="./contact.html">contact</a></li>
+    </ul>
+</nav>
+<div class="page-content">
+    <section class="section section-light">
+        <article>
+            <h4>education</h4>
+            <p>school</p>
+            <p>university</p>
+            <h4>work experience</h4>
+            <p>stratech</p>
+            <p>chain coffee</p>
+            <h4>other achievements</h4>
+            <p>sport</p>
+        </article>
+    </section>
+</div>
+
+</body>
+</html>

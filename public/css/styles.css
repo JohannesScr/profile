@@ -109,8 +109,29 @@ p {
 
 .left,
 .right {
-    flex-grow: 1;
+    flex: 1;
 }
+
+.container {
+    display: flex;
+}
+
+.form {
+    text-align: left;
+}
+
+.form-container {
+    margin: auto;
+}
+
+.form-left {
+
+}
+
+.form-right {
+
+}
+
 
 /* ---------------------
 	Basic Element Styles

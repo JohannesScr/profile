@@ -89,6 +89,9 @@
 
 /*SMALL*/
 @media (max-width: 54em) {  /* 54 * 16 = 864px */
+
+    /*TODO add orientation*/
+
     .section-1 .bg-1,
     .section-1 .bg-2,
     .section-1 .bg-3,
