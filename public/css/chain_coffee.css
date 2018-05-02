@@ -126,7 +126,11 @@ table.table td {
 }
 
 .e-mail {
+    display: block;
     margin: 2em auto;
+    max-width: 50%;
+    padding: 1em;
+    color: grey;
     /*height: 100%;*/
 }
 
