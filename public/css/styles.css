@@ -96,9 +96,10 @@ p {
 
 button,
 input,
-select {
+select,
+textarea {
     min-height: 2em;
-    max-height: 2em;
+    /*max-height: 2em;*/
     font-size: 0.8em;
     padding: 0.2em;
     background: white;
@@ -146,6 +147,14 @@ select {
 
 .form-right input {
     width: 100%;
+}
+
+.form-textarea {
+    width: 92%;
+    height: 10em;
+    border-radius: 0.5em;
+    padding: 0.5em;
+    margin: 0 1.5em 1.5em;
 }
 
 .inline {
