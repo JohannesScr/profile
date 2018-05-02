@@ -37,108 +37,115 @@
         </div>
     </section>
     <section class="section section-2">
-        <article class="article-text">
-            <!--<div id="title"></div>-->
-            <h2>Chain Coffee</h2>
-            <p>At the heart of every cup of coffee it is a combination of aesthetic allure
-            and atmosphere changing taste that makes one stop and think about what has
-            just happened.</p>
-            <p>You have the opportunity to taste something soo extraordinary that
-            it renders all other thoughts pointless. Your mind now has one objective, to solve
-            the puzzle it has been presented with.</p>
-            <p>~ Isn't that how every cup of coffee should be?</p>
-            <p>Chain Coffee is a mobile coffee bar geared for events and functions.
-            Our speciality is coffee beverages (as can be recognised in the name), however,
-            we do a variety of beverages.</p>
-        </article>
-        <div class="article-img">
+        <div class="left">
+            <article class="article-text">
+                <h2>Chain Coffee</h2>
+                <p>At the heart of every cup of coffee it is a combination of aesthetic allure
+                    and atmosphere changing taste that makes one stop and think about what has
+                    just happened.</p>
+                <p>You have the opportunity to taste something soo extraordinary that
+                    it renders all other thoughts pointless. Your mind now has one objective, to solve
+                    the puzzle it has been presented with.</p>
+                <p>~ Isn't that how every cup of coffee should be?</p>
+                <p>Chain Coffee is a mobile coffee bar geared for events and functions.
+                    Our speciality is coffee beverages (as can be recognised in the name), however,
+                    we do a variety of beverages.</p>
+            </article>
+        </div>
+        <div class="article-img right">
             <img class="img-dimensions" src="./../assets/chain_coffee_cc.jpg" alt="chain coffee">
         </div>
     </section>
     <section class="section section-light">
         <div class="left">
-            <h2>Get a quote</h2>
-            <table class="form form-container">
-                <tr>
-                    <td class="form form-left"><label class="left" for="start_date">Start date</label></td>
-                    <td class="form form-right"><input class="right" id="start_date" type="date"></td>
-                </tr>
-                <tr>
-                    <td class="form form-left"><label for="end_date">End date</label></td>
-                    <td class="form form-right"><input id="end_date" type="date"></td>
-                </tr>
-                <tr>
-                    <td class="form form-left"><label for="start_time">Start time</label></td>
-                    <td class="form form-right"><input type="time" name="" id="start_time"></td>
-                </tr>
-                <tr>
-                    <td class="form form-left"><label for="end_time">End time</label></td>
-                    <td class="form form-right"><input type="time" name="" id="end_time"></td>
-                </tr>
-                <tr>
-                    <td class="form form-left"><label for="pax">Number of guests</label></td>
-                    <td class="form form-right"><input type="text" id="pax"></td>
-                </tr>
-                <tr>
-                    <td class="form form-left"><label for="venue">Venue name</label></td>
-                    <td class="form form-right"><input type="text" id="venue"></td>
-                </tr>
-                <tr>
-                    <td class="form form-left"><label for="city">City/Town</label></td>
-                    <td class="form form-right"><input type="text" id="city"></td>
-                </tr>
-                <tr>
-                    <td class="form form-left"><label for="city">Province</label></td>
-                    <td class="form form-right">
-                        <select name="province" id="province">
-                            <option value="western_cape">Western Cape</option>
-                            <option disabled value="eastern_cape">Eastern Cape</option>
-                        </select>
-                    </td>
-                </tr>
-            </table>
-            <button class="btn btn-dark" onclick="generate_quote()">Generate quote</button>
-            <div>
-                <pre id="demo"></pre>
-                <p id="quote_amount"></p>
+            <div class="inline">
+                <div class="card-dark">
+                    <h2>Get a quote</h2>
+                    <table class="form form-container">
+                        <tr>
+                            <td class="form form-left"><label class="left" for="start_date">Start date</label></td>
+                            <td class="form form-right"><input class="right" id="start_date" type="date"></td>
+                        </tr>
+                        <tr>
+                            <td class="form form-left"><label for="end_date">End date</label></td>
+                            <td class="form form-right"><input id="end_date" type="date"></td>
+                        </tr>
+                        <tr>
+                            <td class="form form-left"><label for="start_time">Start time</label></td>
+                            <td class="form form-right"><input type="time" name="" id="start_time"></td>
+                        </tr>
+                        <tr>
+                            <td class="form form-left"><label for="end_time">End time</label></td>
+                            <td class="form form-right"><input type="time" name="" id="end_time"></td>
+                        </tr>
+                        <tr>
+                            <td class="form form-left"><label for="pax">Number of guests</label></td>
+                            <td class="form form-right"><input type="text" id="pax"></td>
+                        </tr>
+                        <tr>
+                            <td class="form form-left"><label for="venue">Venue name</label></td>
+                            <td class="form form-right"><input type="text" id="venue"></td>
+                        </tr>
+                        <tr>
+                            <td class="form form-left"><label for="city">City/Town</label></td>
+                            <td class="form form-right"><input type="text" id="city"></td>
+                        </tr>
+                        <tr>
+                            <td class="form form-left"><label for="city">Province</label></td>
+                            <td class="form form-right">
+                                <select name="province" id="province">
+                                    <option value="western_cape">Western Cape</option>
+                                    <option disabled value="eastern_cape">Eastern Cape</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
+                    <button class="btn btn-dark" onclick="generate_quote()">Generate quote</button>
+                </div>
+                <div id="quote_block" class="card-dark card-hidden">
+                    <pre id="demo"></pre>
+                    <p id="quote_amount"></p>
+                </div>
             </div>
         </div>
-        <article class="right">
-            <details>
+        <article id="quote_breakdown" class="right card-hidden">
+            <details id="quote_detail_breakdown" class="card-dark">
                 <summary>Cost break-down</summary>
-                <table>
-                    <tr>
-                        <th>description</th>
-                        <th>price/unit</th>
-                        <th>price</th>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>description</th>
+                            <th>price/unit</th>
+                            <th>units</th>
+                            <th>price</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cost_breakdown">
+
+                    </tbody>
                 </table>
             </details>
         </article>
         <!--<article class="tnc-container">-->
-            <!--<h4>terms and conditions</h4>-->
-            <!--<details>-->
-                <!--<ul>-->
-                    <!--<li>If outside an approximate radius of 60 kilometers from Stellenbosch, Western Cape, South-->
-                        <!--Africa. Additional costs may be be quoted / invoiced. Please ensure to enquire.</li>-->
-                <!--</ul>-->
-            <!--</details>-->
+        <!--<h4>terms and conditions</h4>-->
+        <!--<details>-->
+        <!--<ul>-->
+        <!--<li>If outside an approximate radius of 60 kilometers from Stellenbosch, Western Cape, South-->
+        <!--Africa. Additional costs may be be quoted / invoiced. Please ensure to enquire.</li>-->
+        <!--</ul>-->
+        <!--</details>-->
         <!--</article>-->
     </section>
     <section class="section section-dark">
         <div></div>
     </section>
 </div>
-<div id="modal-1" class="modal">
+<div id="modal-1" class="modal page-content">
     <div class="modal-area">
         <div class="modal-context">
-            <h2>Header</h2>
-            <h4>message</h4>
-            <p>list</p>
+            <h2 id="modal-1-header"></h2>
+            <h4 id="modal-1-message"></h4>
+            <p id="modal-1-list"></p>
         </div>
     </div>
 </div>

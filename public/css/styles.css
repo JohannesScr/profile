@@ -94,6 +94,17 @@ p {
     margin: 1em 0;
 }
 
+button,
+input,
+select {
+    min-height: 2em;
+    max-height: 2em;
+    font-size: 0.8em;
+    padding: 0.2em;
+    background: white;
+    border-radius: 0.2em;
+}
+
 .section {
     display: flex;
     padding: 10px;
@@ -125,13 +136,20 @@ p {
 }
 
 .form-left {
-
+    padding: 0 1em;
 }
 
 .form-right {
-
+    padding: 0 1em;
 }
 
+.form-right input {
+    width: 100%;
+}
+
+.inline {
+    display: inline-block;
+}
 
 /* ---------------------
 	Basic Element Styles
@@ -145,6 +163,11 @@ a {
 /* ---------------------
 	Basic Class Styles
 ------------------------ */
+
+.btn {
+    margin: 1em;
+    padding: 0.5em;
+}
 
 .section-dark {
     color: grey;
