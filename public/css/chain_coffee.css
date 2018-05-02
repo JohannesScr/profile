@@ -93,6 +93,8 @@ table.table td {
 	Media
 ------------------------ */
 
-/*@media screen and (max-width: 667px) {*/
-    /**/
-/*}*/
+@media screen and (max-width: 667px) {
+    .img-dimensions {
+        width: 100%;
+    }
+}
