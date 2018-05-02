@@ -56,6 +56,96 @@
             <img class="img-dimensions" src="./../assets/chain_coffee_cc.jpg" alt="chain coffee">
         </div>
     </section>
+    <section class="section section-dark">
+        <div class="about">
+            <div class="container">
+                <div class="flex-1 hide-mobile v-center">
+                    <img src="../assets/coffee_machine.jpg" alt="latte art">
+                </div>
+                <div class="flex-2">
+                    <article class="article-text">
+                        <h4>About Chain Coffee</h4>
+                        <p>Chain coffee was the dream of a young aspiring student.</p>
+                        <p>The journey started when a coffee shop was willing to teach a student named Johannes
+                            Scribante how to make coffee. Knowing only on the basis of <q>some say...</q>. Although
+                            eager to learn, the shop could not pay Johannes for working there as no additional staff
+                            were needed. Knowing that learning a new skill is more valuable than the rands and cents
+                            that could be earned. He started working and learning. Three months later he was still
+                            working and learning.</p>
+                        <p>Six months later Johannes drew up a business plan, took out a loan to purchase his machine
+                            and started Chain Coffee. With the support of the local coffee shop and many blessings
+                            Chain Coffee paid off the loan in two-and-a-half years, half-a-year earlier than the
+                            business plan.</p>
+                        <p><q>Do not let circumstances prohibit your opportunity to learn. You only need the hunger to
+                            learn. You will find a way. Give it some time.</q></p>
+                    </article>
+                </div>
+            </div>
+            <div class="container">
+                <div class="flex-2">
+                    <article class="article-text">
+                        <h3>Our Services</h3>
+                        <br>
+                        <div>
+                            <span class="list-block">Barista</span>
+                            <span class="list-block">Single Group Coffee Machine</span>
+                            <span class="list-block">Wooden Bar</span>
+                            <span class="list-block">White Paper Cups</span>
+                            <span class="list-block">Plastic Lids</span>
+                            <span class="list-block">Wooden Stirrers</span>
+                            <span class="list-block">White Sugar</span>
+                            <span class="list-block">Brown Sugar</span>
+                            <span class="list-block">Water</span>
+                            <span class="list-block">Fresh Full Cream Milk</span>
+                        </div>
+                        <br>
+                        <p>Our quotes and invoices work on a very simple principle.</p>
+                        <p>Time and Guests.</p>
+                        <p>We price for the amount of time we have to be available to make coffee. In conjunction with
+                            the time we ensure to bring at least the number of cups equal to 120% of the number of
+                            quests. This model allows the guests to drink coffee for free with the illusion of
+                            an unlimited supply of coffee.</p>
+                        <p>This model has been tried an tested at over 80 weddings and has yet to fail.</p>
+                        <p>Unless otherwise specified, set-up takes place one hour before the beverages are scheduled
+                            to be served.</p>
+                        <br>
+                        <h3>Beverages</h3>
+                        <br>
+                        <h5>Coffee</h5>
+                        <div>
+                            <span class="list-block">Espresso</span>
+                            <span class="list-block">Machiatto</span>
+                            <span class="list-block">Cortado</span>
+                            <span class="list-block">Flat White</span>
+                            <span class="list-block">Cappuccino</span>
+                            <span class="list-block">Cafe Latte</span>
+                        </div>
+                        <br>
+                        <h4>Tea</h4>
+                        <div>
+                            <span class="list-block">English Breakfast Tea</span>
+                            <span class="list-block">Rooibos Tea</span>
+                            <span class="list-block">Chai Tea</span>
+                        </div>
+                        <br>
+                        <h4>Decadent</h4>
+                        <div>
+                            <span class="list-block">Hot Choloclate</span>
+                            <span class="list-block">Cafe Mocha (Coffee and Hot Chocolate)</span>
+                        </div>
+
+                    </article>
+                </div>
+                <div class="flex-1 hide-mobile v-center">
+                    <img src="../assets/chain_coffee_pour.jpg" alt="latte art">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <h2>slider</h2>
+
+    </section>
     <section class="section section-light">
         <div class="left">
             <div class="inline">
@@ -137,7 +227,44 @@
         <!--</article>-->
     </section>
     <section class="section section-dark">
-        <div></div>
+        <div class="flex-1 v-center">
+            <h1 class="contact-header">Chain Coffee</h1>
+        </div>
+        <div class="flex-1 v-center">
+            <h2>Get in touch</h2>
+            <div id="e_mail_btn" class="contact-toggle v-center contact-active e-mail-btn" onclick="toggle_contact_form()">
+                <p>email</p>
+            </div>
+            <div id="web_mail_btn" class="contact-toggle v-center web-mail-btn" onclick="toggle_contact_form()">
+                <p>through this site</p>
+            </div>
+        </div>
+        <div class="flex-2">
+            <div id="web_mail" class="hide-block web-mail v-center">
+                <table class="form form-container">
+                    <tr>
+                        <td class="form form-left"><label for="contact_number">Contact number</label></td>
+                        <td class="form form-right"><input id="contact_number" type="text"></td>
+                    </tr>
+                    <tr>
+                        <td class="form form-left"><label for="email">Email</label></td>
+                        <td class="form form-right"><input id="email" type="text"></td>
+                    </tr>
+                    <tr>
+                        <td class="form form-left"><label for="subject">Subject</label></td>
+                        <td class="form form-right"><input id="subject" type="text"></td>
+                    </tr>
+                    <tr>
+                        <td class="form form-left"><label for="message">Message</label></td>
+                        <td class="form form-right"><input id="message" type="text"></td>
+                    </tr>
+                </table>
+                <button class="btn btn-light" onclick="send_email()">send message</button>
+            </div>
+            <div id="e_mail" class="e-mail">
+                <a class="v-center" href="mailto:info@chaincoffee.com?Subject=Chain%20coffee%20question"><button class="btn btn-light">open emails</button></a>
+            </div>
+        </div>
     </section>
 </div>
 <div id="modal-1" class="modal page-content">

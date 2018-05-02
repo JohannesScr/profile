@@ -241,3 +241,19 @@ function generate_quote() {
     }
 }
 
+function toggle_contact_form() {
+    document.getElementById('web_mail').classList.toggle('hide-block');
+    document.getElementById('web_mail_btn').classList.toggle('contact-active');
+    document.getElementById('e_mail').classList.toggle('hide-block');
+    document.getElementById('e_mail_btn').classList.toggle('contact-active');
+    window.scrollTo(0,document.body.scrollHeight);
+}
+
+function send_email() {
+    let info = {
+        header: 'Coming soon',
+        message: 'This feature will soon be available.'
+    };
+    display_modal(info);
+}
+

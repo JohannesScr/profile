@@ -124,6 +124,7 @@ select {
 }
 
 .container {
+    width: 100%;
     display: flex;
 }
 
@@ -149,6 +150,14 @@ select {
 
 .inline {
     display: inline-block;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.flex-2 {
+    flex: 2;
 }
 
 /* ---------------------
@@ -206,6 +215,10 @@ a {
     }
 
     .section {
+        flex-direction: column;
+    }
+
+    .container {
         flex-direction: column;
     }
 
