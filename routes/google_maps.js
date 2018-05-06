@@ -11,14 +11,9 @@ function google_maps_distance(req, res) {
     let venue = '';
     let city = '';
     let province = '';
-    if (!req.body.venue) {
-        req.result.errors.push({
-            error_type: 'Required field',
-            field: 'venue',
-            message: 'venue is a required field'
-        });
-    } else {
-        venue = req.body.venue;
+
+    if (req.body.venue) {
+        venue = req.body.venue + ',';
     }
     if (!req.body.city) {
         req.result.errors.push({
@@ -51,7 +46,7 @@ function google_maps_distance(req, res) {
         method: 'get',
         url: `https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins`+
         `=${process.env.ORIGIN_CITY},${process.env.ORIGIN_PROVINCE},${process.env.ORIGIN_COUNTRY}`+
-        `&destinations=${venue},${city},${province},${process.env.ORIGIN_COUNTRY}&`+
+        `&destinations=${venue}${city},${province},${process.env.ORIGIN_COUNTRY}&`+
         `key=${process.env.GOOGLE_MAPS_API_KEY}`,
     };
 

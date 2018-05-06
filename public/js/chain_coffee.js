@@ -170,10 +170,8 @@ function show_cost_breakdown(quote_detail) {
         cell2.classList.add('td-unit');
 
         if (typeof quote_detail[i][3] === 'number') {
-            console.log('number', quote_detail[i][3]);
             cell3.innerHTML = quote_detail[i][3] > 0 ? `R ${quote_detail[i][3]}`: '';
         } else {
-            console.log('nan', quote_detail[i][3]);
             cell3.innerHTML = quote_detail[i][3];
         }
         cell3.classList.add('td-price');
@@ -186,9 +184,9 @@ function generate_quote() {
     let start_time = document.getElementById('start_time').value;
     let end_time = document.getElementById('end_time').value;
     let pax = document.getElementById('pax').value;
-    let venue = document.getElementById('venue').value;
-    let city = document.getElementById('city').value;
-    let province = document.getElementById('province').value;
+    let venue = document.getElementById('venue').value.trim();
+    let city = document.getElementById('city').value.trim();
+    let province = document.getElementById('province').value.trim();
 
     let quote_variables = {
         start_date,
@@ -241,17 +239,19 @@ function generate_quote() {
             });
         }
     }
-    if (!quote_variables.venue) {
-        err.push({
-            field: 'venue',
-            message: 'venue is a required field'
-        });
-    }
-    if (!quote_variables.city) {
+    if (!quote_variables.city || quote_variables.city.length === 0) {
         err.push({
             field: 'city/town',
             message: 'city/town is a required field'
         });
+    }
+    if (!quote_variables.province || quote_variables.province.length === 0) {
+        err.push({
+            field: 'province',
+            message: 'province is a required field'
+        });
+    } else {
+        quote_variables.province = quote_variables.province.replace(/_/g, '+');
     }
 
 
@@ -264,10 +264,13 @@ function generate_quote() {
     } else {
 
         let google_maps_data = {
-            venue,
             city,
             province
         };
+
+        if (quote_variables.venue && quote_variables.venue.length !== 0) {
+            google_maps_data.venue = venue.trim();
+        }
 
         let quote = calculate_quote(quote_variables);
         let quote_detail = build_detail(quote);
