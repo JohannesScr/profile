@@ -2,8 +2,10 @@ let modal = document.getElementById('modal-1');
 modal.onwheel = function(event) {
     event.preventDefault();
 };
-modal.onclick = () => {
-    modal.style.display = 'none';
+modal.onclick = (click_remove=true) => {
+    if (click_remove) {
+        modal.style.display = 'none';
+    }
 };
 
 function display_modal(data) {
@@ -19,65 +21,42 @@ function display_modal(data) {
     document.getElementById('modal-1-list').innerHTML = list;
 }
 
-function createCORSRequest(method, url) {
+function build_form_urlencoded(data) {
+    let keys = Object.keys(data);
+    let data_string = '';
+    for (let i = 0; i < keys.length; i++) {
+        if (typeof data[keys[i]] === 'string') {
+            data[keys[i]] = data[keys[i]].replace(/\s/g, '+');
+        } else if (typeof data[keys[i]] === 'object') {
+            data[keys[i]] = build_form_urlencoded(data[keys[i]]);
+        }
+        data_string += `${keys[i]}=${data[keys[i]]}`;
+        if (i !== keys.length - 1) {
+            data_string += '&';
+        }
+    }
+    return data_string;
+}
+
+function google_maps_distance(data) {
+    // let uri = `http://localhost:3010/test_ajax`;
+
+    data = build_form_urlencoded(data);
+    console.log('GOOGLE MAPS DATA:', data);
+
+    let uri = `/google_maps`;
+    let method = 'POST';
     let xhr = new XMLHttpRequest();
-    if ("withCredentials" in xhr) {
-        // Check if the XMLHttpRequest object has a "withCredentials" property.
-        // "withCredentials" only exists on XMLHTTPRequest2 objects.
-        xhr.open(method, url, true);
-
-    } else if (typeof XDomainRequest !== "undefined") {
-        // Otherwise, check if XDomainRequest.
-        // XDomainRequest only exists in IE, and is IE's way of making CORS requests.
-        xhr = new XDomainRequest();
-        // xhr.open(method, url);
-
-    } else {
-        // Otherwise, CORS is not supported by the browser.
-        xhr = null;
-
-    }
-    return xhr;
-}
-
-function google_maps_distance() {
-    let uri = `https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins=Stellenosch,South+Africa&destinations=Paarl,South+Africa&key=AIzaSyDC8eH6JsjrJBj8a522xxnBjuBGlCYnAb0`;
-    // let google_maps_http = new XMLHttpRequest();
-    let google_maps_http = createCORSRequest();
-    if (!google_maps_http) {
-        console.warn('Error: No google_maps_http');
-    } else {
-        google_maps_http.onreadystatechange = function () {
-            console.log('GOOGLE MAPS: ', this.responseText);
-            if (this.readyState === 4 && this.status === 200) {
-                document.getElementById("demo").innerHTML = this.responseText;
-                console.log('GOOGLE MAPS: ', this.responseText);
-            }
-        };
-        google_maps_http.open('GET', uri, false);
-        google_maps_http.send();
-    }
-}
-
-function axios_google_maps_distance() {
-    let request_object = {
-        method: 'get',
-        url: `https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins=Stellenosch,South+Africa&destinations=Paarl,South+Africa&key=AIzaSyDC8eH6JsjrJBj8a522xxnBjuBGlCYnAb0`,
-        headers: {
-            'access-control-allow-credentials': true,
-            'access-control-allow-headers': ['Content - Type', 'Authorization'],
-            'access-control-allow-methods': ['GET', 'PUT', 'POST', 'DELETE'],
-            'access-control-allow-origin': '*'
+    xhr.open(method, uri, true);
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhr.onreadystatechange = function () {
+        if (this.readyState === 4 && this.status === 200) {
+            let res = JSON.parse(this.responseText);
+            console.log(`Data fetch successfully ${uri}`, res);
+            return res;
         }
     };
-    axios(request_object)
-            .then(data => {
-                document.getElementById("demo").innerHTML = data;
-                console.log('GOOGLE MAPS: ', data);
-            })
-            .catch(err => {
-                console.warn('Error: GOOGLE MAPS: ', err);
-            });
+    xhr.send(data);
 }
 
 function calculate_quote(input) {
@@ -90,10 +69,14 @@ function calculate_quote(input) {
     input.kilometers = 0;
     input.base_fee = 0;
 
-    // google_maps_distance();
-    // axios_google_maps_distance();
+    let google_maps_data = {
+        venue: input.venue,
+        city: input.city,
+        province: input.province
+    };
+    let maps_data = google_maps_distance(google_maps_data);
+    console.log('GOOGLE MAPS:', maps_data);
     // WIP google_maps_distance
-    console.warn('WIP google_maps_distance');
 
     input.start = new Date(`${input.start_date}T${input.start_time}:00.000`);
     input.end = new Date(`${input.end_date}T${input.end_time}:00.000`);
@@ -188,13 +171,19 @@ function generate_quote() {
     let start_time = document.getElementById('start_time').value;
     let end_time = document.getElementById('end_time').value;
     let pax = document.getElementById('pax').value;
+    let venue = document.getElementById('venue').value;
+    let city = document.getElementById('city').value;
+    let province = document.getElementById('province').value;
 
     let quote_variables = {
         start_date,
         end_date,
         start_time,
         end_time,
-        pax
+        pax,
+        venue,
+        city,
+        province
     };
 
     let err = [];

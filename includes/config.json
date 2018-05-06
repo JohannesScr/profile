@@ -6,7 +6,11 @@
     "PG_DB_PORT": 5432,
     "PG_DB_NAME": "profile",
     "PG_DB_USERNAME": "dev",
-    "PG_DB_PASSWORD": "pass"
+    "PG_DB_PASSWORD": "pass",
+    "ORIGIN_CITY": "stellenbosch",
+    "ORIGIN_PROVINCE": "western+cape",
+    "ORIGIN_COUNTRY": "south+africa",
+    "GOOGLE_MAPS_API_KEY": "AIzaSyDC8eH6JsjrJBj8a522xxnBjuBGlCYnAb0"
   },
   "test": {
     "ENV_NAME": "TEST",
