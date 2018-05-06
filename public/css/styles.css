@@ -214,6 +214,37 @@ a {
     background: linear-gradient(to left, #D9D7D9, dodgerblue)
 }
 
+.icon-area {
+    margin: auto;
+    width: 100px;
+}
+
+.icon-group {
+    display: flex;
+    margin: 5px 0;
+}
+
+.icon-group:hover .icon {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.icon-group:hover .icon-label {
+    color: white;
+}
+
+.icon-label {
+    margin: auto 0;
+    color: rgb(43, 43, 43);
+}
+
+.icon {
+    margin: auto 15px;
+    width: 6px;
+    height: 15px;
+    background: transparent;
+    border: 3px solid rgb(43, 43, 43);
+}
+
 /* ---------------------
 	Media
 ------------------------ */
