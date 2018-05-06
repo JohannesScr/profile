@@ -84,6 +84,13 @@ a:hover {
         display: inline-block;
     }
 
+    nav>ul {
+        font-size: 1.5em;
+        padding-top: 0.5em;
+        padding-left: 1em;
+        padding-bottom: 1em;
+    }
+
     nav ul .hide-block {
         display: none;
     }
