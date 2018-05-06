@@ -215,6 +215,12 @@ function generate_quote() {
             message: 'end date is a required field'
         });
     }
+    if (new Date(quote_variables.start_date) > new Date(quote_variables.end_date)) {
+        err.push({
+            field: 'invalid timeline',
+            message: 'end date cannot be before the start date'
+        });
+    }
     if (!quote_variables.start_time) {
         err.push({
             field: 'start time',
@@ -227,6 +233,27 @@ function generate_quote() {
             message: 'end time is a required field'
         });
     }
+    if (quote_variables.start_date === quote_variables.end_date) {
+        if (quote_variables.start_time > quote_variables.end_time) {
+            err.push({
+                field: 'invalid timeline',
+                message: 'end time cannot be before the start time'
+            });
+        }
+    }
+    if (!quote_variables.venue) {
+        err.push({
+            field: 'venue',
+            message: 'venue is a required field'
+        });
+    }
+    if (!quote_variables.city) {
+        err.push({
+            field: 'city/town',
+            message: 'city/town is a required field'
+        });
+    }
+
 
     if (err.length > 0) {
         display_modal({
