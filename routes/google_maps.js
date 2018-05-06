@@ -54,9 +54,9 @@ function google_maps_distance(req, res) {
         `&destinations=${venue},${city},${province},${process.env.ORIGIN_COUNTRY}&`+
         `key=${process.env.GOOGLE_MAPS_API_KEY}`,
     };
+
     axios(request_object)
             .then(response => {
-                console.log('GOOGLE MAPS: ', response.data);
                 req.result.message = 'Google maps data fetched successfully';
                 req.result.data = response.data;
                 console.log(`<### ${req.result.message}`);

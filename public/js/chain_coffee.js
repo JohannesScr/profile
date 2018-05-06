@@ -41,22 +41,24 @@ function build_form_urlencoded(data) {
 function google_maps_distance(data) {
     // let uri = `http://localhost:3010/test_ajax`;
 
-    data = build_form_urlencoded(data);
-    console.log('GOOGLE MAPS DATA:', data);
+    return new Promise(resolve => {
+        data = build_form_urlencoded(data);
+        console.log('GOOGLE MAPS DATA:', data);
 
-    let uri = `/google_maps`;
-    let method = 'POST';
-    let xhr = new XMLHttpRequest();
-    xhr.open(method, uri, true);
-    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhr.onreadystatechange = function () {
-        if (this.readyState === 4 && this.status === 200) {
-            let res = JSON.parse(this.responseText);
-            console.log(`Data fetch successfully ${uri}`, res);
-            return res;
-        }
-    };
-    xhr.send(data);
+        let uri = `/google_maps`;
+        let method = 'POST';
+        let xhr = new XMLHttpRequest();
+        xhr.open(method, uri, true);
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhr.onreadystatechange = function () {
+            if (this.readyState === 4 && this.status === 200) {
+                let res = JSON.parse(this.responseText);
+                console.log(`Data fetch successfully ${uri}`, res);
+                resolve(res);
+            }
+        };
+        xhr.send(data);
+    });
 }
 
 function calculate_quote(input) {
@@ -67,16 +69,19 @@ function calculate_quote(input) {
     input.rate_per_cup = 10;
     input.rate_per_kilometer = 3;
     input.kilometers = 0;
+    input.min_kilometer_thershold = 50;
+    input.travel_time = 0;
     input.base_fee = 0;
+    input.travel_fee = '-';
+    input.pax_fee = 0;
+    input.hour_fee = 0;
+    input.after_hours_fee = 0;
 
-    let google_maps_data = {
-        venue: input.venue,
-        city: input.city,
-        province: input.province
-    };
-    let maps_data = google_maps_distance(google_maps_data);
-    console.log('GOOGLE MAPS:', maps_data);
     // WIP google_maps_distance
+    if (input.google_maps_data) {
+        input.kilometers = Math.floor(input.google_maps_data.rows[0].elements[0].distance.value / 1000);
+        input.travel_time = input.google_maps_data.rows[0].elements[0].duration.text;
+    }
 
     input.start = new Date(`${input.start_date}T${input.start_time}:00.000`);
     input.end = new Date(`${input.end_date}T${input.end_time}:00.000`);
@@ -90,7 +95,14 @@ function calculate_quote(input) {
     console.log('END: ', input.end);
     console.log('END HOUR: ', input.end_hour);
 
-    input.total_fee = input.call_out_fee + (input.rate_per_cup * input.pax) + (input.rate_per_hour * input.hours);
+    input.pax_fee = (input.rate_per_cup * input.pax);
+    input.hour_fee = (input.rate_per_hour * input.hours);
+    input.total_fee = input.call_out_fee + input.pax_fee + input.hour_fee;
+
+    if (input.kilometers >= input.min_kilometer_thershold) {
+        input.travel_fee = (input.rate_per_kilometer * input.kilometers);
+        input.total_fee += input.travel_fee;
+    }
 
     // Finish after 23:00 (after hours)
     if (input.start_hour >= 23 && input.end_hour >= 23) {
@@ -98,7 +110,8 @@ function calculate_quote(input) {
     } else if (input.end_hour >= 23) {
         input.after_hours = input.end_hour - 23;
         console.log('AFTER HOURS: ', input.after_hours);
-        input.total_fee = input.total_fee + (input.after_hours * input.rate_after_hours);
+        input.after_hours_fee = (input.after_hours * input.rate_after_hours);
+        input.total_fee = input.total_fee + input.after_hours_fee;
     }
 
     console.log('DAYS', input.days);
@@ -120,10 +133,10 @@ function build_detail(quote_variables) {
         // ['start', '', '', (quote_variables.start_date + ' ' + quote_variables.start_time)],
         // ['end', '', '', (quote_variables.end_date + ' ' + quote_variables.end_time)],
         ['call out fee', quote_variables.call_out_fee, 1, quote_variables.call_out_fee],
-        ['pax', quote_variables.rate_per_cup, quote_variables.pax, (quote_variables.rate_per_cup * quote_variables.pax)],
-        ['hours', quote_variables.rate_per_hour, quote_variables.hours, (quote_variables.rate_per_hour * quote_variables.hours)],
-        ['after hours', quote_variables.rate_after_hours, quote_variables.after_hours, (quote_variables.rate_after_hours * quote_variables.after_hours)],
-        ['travelling fee', quote_variables.rate_per_kilometer, quote_variables.kilometers, (quote_variables.rate_per_kilometer * quote_variables.kilometers)],
+        ['pax', quote_variables.rate_per_cup, quote_variables.pax, quote_variables.pax_fee],
+        ['hours', quote_variables.rate_per_hour, quote_variables.hours, quote_variables.hour_fee],
+        ['after hours', quote_variables.rate_after_hours, quote_variables.after_hours, quote_variables.after_hours_fee],
+        ['travelling fee', quote_variables.rate_per_kilometer, quote_variables.kilometers, quote_variables.travel_fee],
         ['total', '', '', quote_variables.total_fee]
     ];
 }
@@ -156,9 +169,11 @@ function show_cost_breakdown(quote_detail) {
         cell2.innerHTML = quote_detail[i][2];
         cell2.classList.add('td-unit');
 
-        if (typeof quote_detail[i][1] === 'number') {
+        if (typeof quote_detail[i][3] === 'number') {
+            console.log('number', quote_detail[i][3]);
             cell3.innerHTML = quote_detail[i][3] > 0 ? `R ${quote_detail[i][3]}`: '';
         } else {
+            console.log('nan', quote_detail[i][3]);
             cell3.innerHTML = quote_detail[i][3];
         }
         cell3.classList.add('td-price');
@@ -220,13 +235,37 @@ function generate_quote() {
             list: err
         });
     } else {
+
+        let google_maps_data = {
+            venue,
+            city,
+            province
+        };
+
         let quote = calculate_quote(quote_variables);
         let quote_detail = build_detail(quote);
 
-        // document.getElementById('quote_block').style.display = 'block';
-        // document.getElementById('quote_amount').innerText =  `R ${quote.total_fee}`;
-
         show_cost_breakdown(quote_detail);
+
+        google_maps_distance(google_maps_data)
+                .then(data => {
+                    quote_variables.google_maps_data = data.data;
+                    console.log('GOOGLE MAPS:', quote_variables.google_maps_data);
+
+                    let quote = calculate_quote(quote_variables);
+                    let quote_detail = build_detail(quote);
+
+                    show_cost_breakdown(quote_detail);
+                })
+                .catch(data => {
+                    quote_variables.google_maps_data = data;
+                    console.warn('GOOGLE MAPS DATA:', quote_variables.google_maps_data);
+
+                    let quote = calculate_quote(quote_variables);
+                    let quote_detail = build_detail(quote);
+
+                    show_cost_breakdown(quote_detail);
+                });
     }
 }
 
