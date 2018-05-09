@@ -3,12 +3,13 @@ const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 // local imports
-const {setup_environment} = require('./includes/config');
+const {setup_environment, setup_config} = require('./includes/config');
 const {log_url, add_result_object} = require('./includes/server.settings');
 const {google_maps_distance} = require('./routes/google_maps');
 let app = express();
 
 setup_environment();
+setup_config();
 let PORT = process.env.PORT || 3010;
 
 // default html

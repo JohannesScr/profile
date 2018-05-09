@@ -12,6 +12,16 @@ const setup_environment = () => {
     }
 };
 
+const setup_config = () => {
+    let config = require('./general_config.json');
+
+    let keys = Object.keys(config);
+    keys.forEach(key => {
+        process.env[key] = config[key];
+    });
+};
+
 module.exports = {
-    setup_environment
+    setup_environment,
+    setup_config
 };

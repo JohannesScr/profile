@@ -15,10 +15,12 @@ function display_modal(data) {
     document.getElementById('modal-1-message').innerText = data.message;
 
     let list = '';
-    for (let i = 0; i < data.list.length; i++) {
-        list += `<li><strong>${data.list[i].field}</strong>: ${data.list[i].message}</li>`;
+    if (data.list) {
+        for (let i = 0; i < data.list.length; i++) {
+            list += `<li><strong>${data.list[i].field}</strong>: ${data.list[i].message}</li>`;
+        }
+        document.getElementById('modal-1-list').innerHTML = list;
     }
-    document.getElementById('modal-1-list').innerHTML = list;
 }
 
 function build_form_urlencoded(data) {
