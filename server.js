@@ -9,7 +9,7 @@ const {google_maps_distance} = require('./routes/google_maps');
 let app = express();
 
 setup_environment();
-let PORT =  process.env.PORT;
+let PORT = process.env.PORT || 3010;
 
 // default html
 app.set('view engine', 'hbs');
