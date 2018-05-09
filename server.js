@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const {setup_environment, setup_config} = require('./includes/config');
 const {log_url, add_result_object} = require('./includes/server.settings');
 const {google_maps_distance} = require('./routes/google_maps');
+const {contact_email} = require('./routes/email');
 let app = express();
 
 setup_environment();
@@ -36,6 +37,8 @@ app.get('/test_ajax', (req, res) => {
 // ########################
 // API REQUESTS
 app.post('/google_maps', google_maps_distance);
+
+app.post('/contact_chain', contact_email);
 
 app.listen(PORT, () => {
     console.log(`################ ${process.env.ENV_NAME} ################`);

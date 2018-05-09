@@ -309,11 +309,94 @@ function toggle_contact_form() {
     window.scrollTo(0,document.body.scrollHeight);
 }
 
+function xhr_send_email(data) {
+    return new Promise((resolve, reject) => {
+        let xhr = new XMLHttpRequest();
+        let method = 'POST';
+        let uri = '/contact_chain';
+        xhr.open(method, uri, true);
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhr.onreadystatechange = function() {
+            if (this.readyState === 4 && this.status === 200) {
+                resolve(JSON.parse(this.responseText));
+            }
+        };
+        xhr.send(data);
+    });
+}
+
 function send_email() {
-    let info = {
-        header: 'Coming soon',
-        message: 'This feature will soon be available.'
+
+    let email = document.getElementById('email');
+    let contact_number = document.getElementById('contact_number');
+    let subject = document.getElementById('subject');
+    let message = document.getElementById('message');
+    let err = [];
+
+    if (!email.value) {
+        err.push({
+            error_type: 'required field',
+            field: 'email',
+            message: 'email is a required field'
+        });
+    }
+    if (!contact_number.value) {
+        err.push({
+            error_type: 'required field',
+            field: 'contact_number',
+            message: 'contact_number is a required field'
+        });
+    }
+    if (!subject.value) {
+        err.push({
+            error_type: 'required field',
+            field: 'subject',
+            message: 'subject is a required field'
+        });
+    }
+    if (!message.value) {
+        err.push({
+            error_type: 'required field',
+            field: 'message',
+            message: 'message is a required field'
+        });
+    }
+
+    if (err.length > 0) {
+        let error_info = {
+            header: 'Required fields',
+            message: 'Please complete the from',
+            list: err
+        };
+        return display_modal(error_info);
+    }
+
+    let data = {
+        email: email.value,
+        contact_number: contact_number.value,
+        subject: subject.value,
+        message: message.value
     };
-    display_modal(info);
+
+    data = build_form_urlencoded(data);
+
+    xhr_send_email(data)
+            .then(data => {
+                console.log('xhr_send_email:', data);
+
+                email.value = '';
+                contact_number.value = '';
+                subject.value = '';
+                message.value = '';
+
+                let info = {
+                    header: 'Email successful',
+                    message: 'We will come back to you as soon as possible.'
+                };
+                display_modal(info);
+            })
+            .catch(err => {
+                console.warn('Error: /xhr_send_email:', err);
+            });
 }
 

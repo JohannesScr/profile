@@ -2,5 +2,6 @@
   "ORIGIN_CITY": "stellenbosch",
   "ORIGIN_PROVINCE": "western+cape",
   "ORIGIN_COUNTRY": "south+africa",
-  "GOOGLE_MAPS_API_KEY": "AIzaSyDC8eH6JsjrJBj8a522xxnBjuBGlCYnAb0"
+  "GOOGLE_MAPS_API_KEY": "AIzaSyDC8eH6JsjrJBj8a522xxnBjuBGlCYnAb0",
+  "SENDGRID_API_KEY": "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"
 }
