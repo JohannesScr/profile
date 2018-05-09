@@ -160,7 +160,7 @@ function show_cost_breakdown(quote_detail) {
         cell0.classList.add('td-description');
 
         if (typeof quote_detail[i][1] === 'number') {
-            cell1.innerHTML = quote_detail[i][1] > 0 ? `R ${quote_detail[i][1]}` : '';
+            cell1.innerHTML = quote_detail[i][1] > 0 ? `R ${quote_detail[i][1]}` : '-';
         } else {
             cell1.innerHTML = quote_detail[i][1];
         }
@@ -170,7 +170,7 @@ function show_cost_breakdown(quote_detail) {
         cell2.classList.add('td-unit');
 
         if (typeof quote_detail[i][3] === 'number') {
-            cell3.innerHTML = quote_detail[i][3] > 0 ? `R ${quote_detail[i][3]}`: '';
+            cell3.innerHTML = quote_detail[i][3] > 0 ? `R ${quote_detail[i][3]}`: '-';
         } else {
             cell3.innerHTML = quote_detail[i][3];
         }

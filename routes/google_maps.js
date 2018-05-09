@@ -31,7 +31,7 @@ function google_maps_distance(req, res) {
             message: 'province is a required field'
         });
     } else {
-        province = req.body.province;
+        province = req.body.province.replace(/_/g, '+');
     }
 
     if (req.result.errors.length > 0) {
@@ -54,6 +54,7 @@ function google_maps_distance(req, res) {
             .then(response => {
                 req.result.message = 'Google maps data fetched successfully';
                 req.result.data = response.data;
+                console.log(request_object.url);
                 console.log(`<### ${req.result.message}`);
                 res.send(req.result);
             })
